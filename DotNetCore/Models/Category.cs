@@ -1,9 +1,13 @@
-﻿namespace DotNetCore.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DotNetCore.Models
 {
     public class Category
     {
+        [Key]
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
-        public int CategoryType { get; set; }
+        public int DisplayOrder { get; set; }
     }
 }
