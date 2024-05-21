@@ -1,1 +1,23 @@
-﻿<h1>category list</h1>
+﻿@model List<Category>//By using @model we are connecting or fetching the data from the controller and in the controller we are having index method over there we are getting the data from table.
+<h1>category list</h1>
+<table class="table table-bordered  table-striped">
+	<thead>
+		<tr>
+			<th>
+				Category Name
+			</th>
+			<th>
+				Display Order
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var obj in Model.OrderBy(x=>x.DisplayOrder))//We can simple run the C# code in the cshtml file also we have Model in the foreach loop from there we are connecting to the top @model
+		{
+			<tr>
+				<td>@obj.Name</td> @* Now by using dot notation we can get the particular data *@
+				<td>@obj.DisplayOrder</td>
+			</tr>
+			}
+	</tbody>
+</table>
