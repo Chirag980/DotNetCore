@@ -16,5 +16,9 @@ namespace DotNetCore.Controllers
             List<Category> objCategoryList = _db.Categories.ToList();//This code will run like Select * from Category Table it is for getting the all the data from the parrticular model or table
             return View(objCategoryList);
         }
+        public IActionResult CreateCategory()
+        {
+            return View();
+        }
     }
 }

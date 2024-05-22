@@ -9,7 +9,7 @@ namespace DotNetCore.Data
         {
             
         }
-        //From here we are creating table thats the beauty of the entity framework
+        //From here we are creating table that's the beauty of the entity framework by migration
         public DbSet<Category> Categories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
