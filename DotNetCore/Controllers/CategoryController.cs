@@ -31,6 +31,7 @@ namespace DotNetCore.Controllers
             {
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Category Created Successfully";
                 return RedirectToAction("Index");
             }
             return View();
@@ -56,6 +57,7 @@ namespace DotNetCore.Controllers
             {
                 _db.Categories.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Category Updated Successfully";
                 return RedirectToAction("Index");
             }
             return View();
@@ -84,6 +86,7 @@ namespace DotNetCore.Controllers
             }
             _db.Categories.Remove(deleteCategory);
             _db.SaveChanges();
+            TempData["success"] = "Category Deleted Successfully";
             return RedirectToAction("Index");
         }
     }
