@@ -9,19 +9,28 @@ namespace DotNetRazor.Pages.Categories
     public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
         public EditModel(ApplicationDbContext db)
         {
             _db = db;
         }
-        public void OnGet()
+        public void OnGet(int? id)
         {
+            if (id!=null && id != 0)
+            {
+                Category = _db.Categories.Find(id);
+            }
         }
-        public IActionResult OnPut()
+        public IActionResult OnPost()
         {
-            _db.Categories.Update(Category);
-            _db.SaveChanges();
-            return RedirectToPage("Index");
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Update(Category);
+                _db.SaveChanges();
+                //TempData["success"] = "Category Updated Successfully";
+                return RedirectToPage("Index");
+            }
+            return Page();
         }
     }
 }
