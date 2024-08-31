@@ -6,6 +6,7 @@ namespace DotNetCore.Controllers
 {
     public class CategoryController : Controller
     {
+        //We are using ApplicationDbContext by using dependency Injection to show the Category Data.
         private readonly ApplicationDbContext _db;
         public CategoryController(ApplicationDbContext db)
         {
@@ -13,7 +14,7 @@ namespace DotNetCore.Controllers
         }
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _db.Categories.ToList();//This code will run like Select * from Category Table it is for getting the all the data from the parrticular model or table
+            List<Category> objCategoryList = _db.Categories.ToList();//This code will run like Select * from Category Table it is for getting the all the data from the particular model or table
             return View(objCategoryList);
         }
         public IActionResult CreateCategory()

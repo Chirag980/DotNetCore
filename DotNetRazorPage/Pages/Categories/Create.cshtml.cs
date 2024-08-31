@@ -21,6 +21,7 @@ namespace DotNetRazor.Pages.Categories
         {
             _db.Categories.Add(Category);
             _db.SaveChanges();
+            TempData["success"] = "Category Created Successfully";
             return RedirectToPage("Index");
         }
     }
